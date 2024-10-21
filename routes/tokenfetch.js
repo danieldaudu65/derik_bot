@@ -89,14 +89,14 @@ async function postTopLaunchedTokensToGroup() {
             const { name: tokenName, symbol: tokenSymbol } = await getTokenDetails(token.tokenAddress); // Fetch token details
             const marketCap = await getMarketCap(token.tokenAddress); // Fetch market cap
 
-            return `*Token Name:* ${tokenName || 'N/A'}\n` + 
-                   `*Symbol:* $${tokenSymbol || 'N/A'}\n` + 
-                   `*Description:* ${token.description || 'No description available'}\n` + 
-                   `*Address:* ${token.tokenAddress}\n` + 
-                   `*Launch Amount:* ${token.amount || 0}\n` + 
-                   `*Market Cap:* ${marketCap || 'N/A'}\n` + 
-                   `[🔗 More Info](${token.url})\n\n` + // Separate each token by a new line
-                   `----------------------------\n`; // Divider to separate tokens
+            return `*Token Name:* ${tokenName || 'N/A'}\n` +
+                `*Symbol:* $${tokenSymbol || 'N/A'}\n` +
+                `*Description:* ${token.description || 'No description available'}\n` +
+                `*Address:* ${token.tokenAddress}\n` +
+                `*Launch Amount:* ${token.amount || 0}\n` +
+                // `*Market Cap:* ${marketCap || 'N/A'}\n` +
+                `[🔗 More Info](${token.url})\n\n` + // Separate each token by a new line
+                `----------------------------\n`; // Divider to separate tokens
         }));
 
         // Combine the header with the token messages
@@ -113,3 +113,7 @@ async function postTopLaunchedTokensToGroup() {
 postTopLaunchedTokensToGroup();
 
 // Export the 
+
+module.exports = {
+    postTopLaunchedTokensToGroup
+}
