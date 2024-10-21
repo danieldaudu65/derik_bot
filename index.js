@@ -15,7 +15,8 @@ require('./routes/text')(bot);
 // Log when the bot is running
 console.log('Bot is running...');
 
-// Set up Express
+// Set up Express 
+
 const app = express();
 const PORT = process.env.PORT || 3000; // Set the port from an environment variable or default to 3000
 
@@ -26,7 +27,7 @@ app.get('/', (req, res) => {
 
 // Start the Express server
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on port ${PORT} `);
 });
 
 // Call the function when the bot starts or based on some trigger
@@ -35,4 +36,4 @@ app.listen(PORT, () => {
 // // Optional: Schedule to run every hour (3600000 milliseconds)
 setInterval(() => {
     postTopLaunchedTokensToGroup();
-}, 300000); // Update to run every hour
+}, 60000 * 2); // Update to run every hour
