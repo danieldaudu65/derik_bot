@@ -38,4 +38,5 @@ setInterval(() => {
         .catch((error) => {
             console.error('Error fetching tokens:', error);
         });
-}, 60000 * 2); // Change to 3600000 for every hour
+}, 24000); // Change to 3600000 for every hour
+ 
