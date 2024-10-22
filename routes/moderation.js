@@ -19,6 +19,15 @@ module.exports = (bot) => {
         });
     };
 
+    bot.on('new_chat_members', (msg) =>{
+        msg.new_chat_members.forEach((member) =>{
+            // send a welcome message
+
+            const welcomeMessage = `Welcome, @${member.username || member.first_name}! We're glad to have you in Derik's HuB. Feel free to introduce yourself.`
+            bot.sendMessage(msg.chat.id, welcomeMessage);
+
+        })
+    })
     // Handle messages and moderation
     bot.on('message', (msg) => {
         const chatId = msg.chat.id;

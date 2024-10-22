@@ -63,7 +63,7 @@ async function sendMessageToGroup(message) {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                chat_id: GROUP_ID,
+                chat_id: GROUP_ID, 
                 text: message,
                 parse_mode: 'Markdown', // Optional: for formatting
             }),
@@ -87,7 +87,7 @@ async function postTopLaunchedTokensToGroup() {
         // Get token details and format the message
         const messages = await Promise.all(tokens.map(async (token) => {
             const { name: tokenName, symbol: tokenSymbol } = await getTokenDetails(token.tokenAddress); // Fetch token details
-            const marketCap = await getMarketCap(token.tokenAddress); // Fetch market cap
+            // const marketCap = await getMarketCap(token.tokenAddress); // Fetch market cap
 
             return `*Token Name:* ${tokenName || 'N/A'}\n` +
                 `*Symbol:* $${tokenSymbol || 'N/A'}\n` +
